@@ -1,5 +1,4 @@
 import random
-import streamlit as st
 
 #POP_SIZE: Number of Chromosomes in our list.
 POP_SIZE = 500
@@ -60,6 +59,7 @@ def crossover(selected_chromo, CHROMO_LEN, population):
     offspring_cross.extend([child])
   return offspring_cross
 
+
 #mutation
 
 def mutate(offspring, MUT_RATE):
@@ -80,6 +80,7 @@ def replace(new_gen, population):
         population[_][0] = new_gen[_][0]
         population[_][1] = new_gen[_][1]
   return population
+
 
 #main
 
@@ -119,10 +120,11 @@ def main(POP_SIZE, MUT_RATE, TARGET, GENES):
 
 
       if (population[0][1] == 0):
-        st.wite('Target found')
-        st.write('String: ' + str(population[0][0]) + ' Generation: ' + str(generation) + ' Fitness: ' + str(population[0][1]))
+        print('Target found')
+        print('String: ' + str(population[0][0]) + ' Generation: ' + str(generation) + ' Fitness: ' + str(population[0][1]))
         break
-      st.write('String: ' + str(population[0][0]) + ' Generation: ' + str(generation) + ' Fitness: ' + str(population[0][1]))
+      print('String: ' + str(population[0][0]) + ' Generation: ' + str(generation) + ' Fitness: ' + str(population[0][1]))
       generation+=1
 
 result = main(POP_SIZE, MUT_RATE, TARGET, GENES)
+
